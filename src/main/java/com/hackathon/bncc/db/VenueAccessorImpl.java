@@ -1,6 +1,5 @@
 package com.hackathon.bncc.db;
 
-import com.hackathon.bncc.dao.User;
 import com.hackathon.bncc.dao.Venue;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -31,6 +30,8 @@ public class VenueAccessorImpl implements VenueAccessor {
         String description = resultSet.getString("description");
         String photoso = resultSet.getString("photos");
         int flag = resultSet.getInt("flag");
+        Double latitude = resultSet.getDouble("latitude");
+        Double longtitude = resultSet.getDouble("longtitude");
 
         Venue obj = new Venue();
         obj.setId(id);
@@ -40,6 +41,8 @@ public class VenueAccessorImpl implements VenueAccessor {
         obj.setDescription(description);
         obj.setPhotos(photoso);
         obj.setFlag(flag);
+        obj.setLatitude(latitude);
+        obj.setLongtitude(longtitude);
         venues.add(obj);
       }
       conn.close();
@@ -56,9 +59,10 @@ public class VenueAccessorImpl implements VenueAccessor {
     try{
       String SQL_UPSERT;
       if(venue.getId() == null){
-        SQL_UPSERT = "INSERT INTO venues(user_id, name, address, description, photos, flag) VALUES ("
+        SQL_UPSERT = "INSERT INTO venues(user_id, name, address, description, photos, flag, latitude, longtitude) VALUES ("
             + venue.getUserId() + ", '" + venue.getName() + "', '" + venue.getAddress() + "', '"
-            + venue.getDescription() + "', '" + venue.getPhotos() + "', " + venue.getFlag()+ ") RETURNING id";
+            + venue.getDescription() + "', '" + venue.getPhotos() + "', " + venue.getFlag()+ ", " + venue.getLatitude() + ", "
+            + venue.getLongtitude() + ") RETURNING id";
 
         conn = DriverManager.getConnection(url, "postgres", "postgres");
         PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPSERT);
@@ -74,11 +78,14 @@ public class VenueAccessorImpl implements VenueAccessor {
         result.setDescription(venue.getDescription());
         result.setPhotos(venue.getPhotos());
         result.setFlag(venue.getFlag());
+        result.setLatitude(venue.getLatitude());
+        result.setLongtitude(venue.getLongtitude());
         conn.close();
         return result;
       } else {
         SQL_UPSERT = "UPDATE venues SET user_id=" + venue.getUserId() + ", name='" + venue.getName() + "', address='" + venue.getAddress() + "', description='"
-            + venue.getDescription() + "', photos='" + venue.getPhotos() + "', flag=" + venue.getFlag() +" WHERE id=" + venue.getId() + "RETURNING ID";
+            + venue.getDescription() + "', photos='" + venue.getPhotos() + "', flag=" + venue.getFlag() + ", latitude=" + venue.getLatitude()
+            + ", longtitude=" + venue.getLongtitude() +" WHERE id=" + venue.getId() + "RETURNING ID";
         conn = DriverManager.getConnection(url, "postgres", "postgres");
         PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPSERT);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -90,6 +97,8 @@ public class VenueAccessorImpl implements VenueAccessor {
           result.setDescription(venue.getDescription());
           result.setPhotos(venue.getPhotos());
           result.setFlag(venue.getFlag());
+          result.setLatitude(venue.getLatitude());
+          result.setLongtitude(venue.getLongtitude());
           conn.close();
           return result;
         }

@@ -8,6 +8,8 @@ public class Venue {
   private String description;
   private String photos;
   private Integer flag;
+  private Double latitude;
+  private Double longtitude;
 
   public Long getId() {
     return id;
@@ -69,6 +71,24 @@ public class Venue {
 
   public Venue setFlag(Integer flag) {
     this.flag = flag;
+    return this;
+  }
+
+  public Double getLatitude() {
+    return latitude;
+  }
+
+  public Venue setLatitude(Double latitude) {
+    this.latitude = latitude;
+    return this;
+  }
+
+  public Double getLongtitude() {
+    return longtitude;
+  }
+
+  public Venue setLongtitude(Double longtitude) {
+    this.longtitude = longtitude;
     return this;
   }
 }

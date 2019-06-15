@@ -1,12 +1,9 @@
 package com.hackathon.bncc.impl;
 
 import com.hackathon.bncc.api.VenueApi;
-import com.hackathon.bncc.dao.User;
 import com.hackathon.bncc.dao.Venue;
 import com.hackathon.bncc.db.VenueAccessor;
-import com.hackathon.bncc.domain.GetAllUserResult;
 import com.hackathon.bncc.domain.GetAllVenueResult;
-import com.hackathon.bncc.domain.UpsertUserResult;
 import com.hackathon.bncc.domain.UpsertVenueResult;
 import com.hackathon.bncc.domain.UpsertVenueSpec;
 import java.util.Arrays;
@@ -53,7 +50,9 @@ public class VenueApiImpl implements VenueApi {
         .setAddress(s.getAddress())
         .setDescription(s.getDescription())
         .setPhotos(s.getPhotos())
-        .setFlag(s.getFlag())).collect(Collectors.toList());
+        .setFlag(s.getFlag())
+        .setLatitude(s.getLatitude())
+        .setLongtitude(s.getLongtitude())).collect(Collectors.toList());
   }
 
   public Venue convertToDao(com.hackathon.bncc.domain.Venue venue){
@@ -64,6 +63,8 @@ public class VenueApiImpl implements VenueApi {
         .setAddress(venue.getAddress())
         .setDescription(venue.getDescription())
         .setPhotos(venue.getPhotos())
-        .setFlag(venue.getFlag());
+        .setFlag(venue.getFlag())
+        .setLatitude(venue.getLatitude())
+        .setLongtitude(venue.getLongtitude());
   }
 }
