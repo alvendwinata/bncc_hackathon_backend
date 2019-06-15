@@ -12,6 +12,7 @@ import com.hackathon.bncc.db.VenueSportMappingAccessor;
 import com.hackathon.bncc.domain.GetAllVenueResult;
 import com.hackathon.bncc.domain.GetByPreferredLocationSpec;
 import com.hackathon.bncc.domain.GetByPreferredSportSpec;
+import com.hackathon.bncc.domain.SearchVenueSpec;
 import com.hackathon.bncc.domain.UpsertVenueResult;
 import com.hackathon.bncc.domain.UpsertVenueSpec;
 import java.util.ArrayList;
@@ -113,6 +114,22 @@ public class VenueApiImpl implements VenueApi {
 
       return new GetAllVenueResult().setVenues(convertToDomain(venueAccessor.getVenueById(venueIds)));
     }catch (Exception e){
+      e.printStackTrace();
+      return new GetAllVenueResult().setVenues(null).setSuccess(false);
+    }
+  }
+
+  @Override public GetAllVenueResult searchVenue(SearchVenueSpec spec) {
+    try {
+      List<Venue> venues = venueAccessor.getVenueByCity(spec.getCity().toLowerCase());
+
+      List<VenueSportMapping> venueSportMappings = venueSportMappingAccessor.getBySportId(Arrays.asList(spec.getSportId()));
+      List<Long> venueIds = venueSportMappings.stream().map(s -> s.getVenueId()).collect(Collectors.toList());
+
+      venues = venues.stream().filter(s -> venueIds.contains(s.getId())).collect(Collectors.toList());
+
+      return new GetAllVenueResult().setVenues(convertToDomain(venues)).setSuccess(true);
+    } catch (Exception e){
       e.printStackTrace();
       return new GetAllVenueResult().setVenues(null).setSuccess(false);
     }

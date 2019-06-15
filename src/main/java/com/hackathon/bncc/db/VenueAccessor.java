@@ -10,4 +10,6 @@ public interface VenueAccessor {
   Venue upsert(Venue venue);
 
   List<Venue> getVenueById(List<Long> id);
+
+  List<Venue> getVenueByCity(String name);
 }
