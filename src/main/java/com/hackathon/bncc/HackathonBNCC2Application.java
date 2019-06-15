@@ -3,8 +3,10 @@ package com.hackathon.bncc;
 import com.hackathon.bncc.db.SportAccessorImpl;
 import com.hackathon.bncc.db.UserAccessor;
 import com.hackathon.bncc.db.UserAccessorImpl;
+import com.hackathon.bncc.db.UserSportMappingAccessorImpl;
 import com.hackathon.bncc.impl.SportApiImpl;
 import com.hackathon.bncc.impl.UserApiImpl;
+import com.hackathon.bncc.impl.UserSportMappingApiImpl;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -46,6 +48,7 @@ public class HackathonBNCC2Application extends Application<HackathonBNCC2Configu
             cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
             environment.jersey().register(new UserApiImpl(new UserAccessorImpl()));
             environment.jersey().register(new SportApiImpl(new SportAccessorImpl()));
+            environment.jersey().register(new UserSportMappingApiImpl(new UserSportMappingAccessorImpl()));
         } catch (Exception e){
             e.printStackTrace();
         }
