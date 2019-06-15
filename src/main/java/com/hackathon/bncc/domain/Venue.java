@@ -10,6 +10,7 @@ public class Venue {
   private Integer flag;
   private Double latitude;
   private Double longtitude;
+  private String city;
 
   public Long getId() {
     return id;
@@ -89,6 +90,15 @@ public class Venue {
 
   public Venue setLongtitude(Double longtitude) {
     this.longtitude = longtitude;
+    return this;
+  }
+
+  public String getCity() {
+    return city;
+  }
+
+  public Venue setCity(String city) {
+    this.city = city;
     return this;
   }
 }

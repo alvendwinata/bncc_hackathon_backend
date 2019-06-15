@@ -129,7 +129,8 @@ public class VenueApiImpl implements VenueApi {
         .setPhotos(s.getPhotos())
         .setFlag(s.getFlag())
         .setLatitude(s.getLatitude())
-        .setLongtitude(s.getLongtitude())).collect(Collectors.toList());
+        .setLongtitude(s.getLongtitude())
+        .setCity(s.getCity())).collect(Collectors.toList());
   }
 
   public Venue convertToDao(com.hackathon.bncc.domain.Venue venue){
@@ -142,7 +143,8 @@ public class VenueApiImpl implements VenueApi {
         .setPhotos(venue.getPhotos())
         .setFlag(venue.getFlag())
         .setLatitude(venue.getLatitude())
-        .setLongtitude(venue.getLongtitude());
+        .setLongtitude(venue.getLongtitude())
+        .setCity(venue.getCity());
   }
 
   public Double distance(Double lat1, Double lon1, Double lat2, Double lon2){
