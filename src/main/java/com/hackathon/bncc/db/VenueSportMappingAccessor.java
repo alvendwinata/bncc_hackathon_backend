@@ -7,4 +7,6 @@ public interface VenueSportMappingAccessor {
   List<VenueSportMapping> getAll();
 
   VenueSportMapping upsert(VenueSportMapping venueSportMapping);
+
+  List<VenueSportMapping> getBySportId(List<Long> sportId);
 }

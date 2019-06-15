@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class VenueSportMappingAccessorImpl implements VenueSportMappingAccessor {
@@ -82,6 +83,42 @@ public class VenueSportMappingAccessorImpl implements VenueSportMappingAccessor 
         return result;
       }
     }catch (Exception e){
+      e.printStackTrace();
+      throw new IllegalArgumentException("Uknown error occured");
+    }
+  }
+
+  @Override public List<VenueSportMapping> getBySportId(List<Long> sportId) {
+    List<VenueSportMapping> venues = new ArrayList<>();
+    try {
+      String sportIds = "";
+      for (int i =0; i<sportId.size(); i++){
+        sportIds += sportId.get(i);
+        if(i != sportId.size()-1){
+          sportIds += ",";
+        }
+      }
+
+      String SQL_SELECT = "Select * from venue_sport_mapping WHERE sport_id IN(" + sportIds + ")";
+      conn = DriverManager.getConnection(url, "postgres", "postgres");
+      PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT);
+      ResultSet resultSet = preparedStatement.executeQuery();
+
+      while (resultSet.next()) {
+        long id = Long.valueOf(resultSet.getInt("id"));
+        long venueId = Long.valueOf(resultSet.getInt("venue_id"));
+        long venueSportId = Long.valueOf(resultSet.getInt("sport_id"));
+
+        VenueSportMapping obj = new VenueSportMapping();
+        obj.setId(id);
+        obj.setSportId(venueSportId);
+        obj.setVenueId(venueId);
+        venues.add(obj);
+      }
+      conn.close();
+
+      return venues;
+    } catch (SQLException e) {
       e.printStackTrace();
       throw new IllegalArgumentException("Uknown error occured");
     }

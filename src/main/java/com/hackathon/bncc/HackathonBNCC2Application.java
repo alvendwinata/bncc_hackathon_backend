@@ -60,7 +60,8 @@ public class HackathonBNCC2Application extends Application<HackathonBNCC2Configu
             environment.jersey().register(new UserApiImpl(new UserAccessorImpl()));
             environment.jersey().register(new SportApiImpl(new SportAccessorImpl()));
             environment.jersey().register(new UserSportMappingApiImpl(new UserSportMappingAccessorImpl()));
-            environment.jersey().register(new VenueApiImpl(new VenueAccessorImpl(), new UserSportMappingAccessorImpl()));
+            environment.jersey().register(new VenueApiImpl(new VenueAccessorImpl(), new UserSportMappingAccessorImpl()
+                , new VenueSportMappingAccessorImpl(), new UserPreferredLocationAccessorImpl()));
             environment.jersey().register(new UserDayMappingApiImpl(new UserDayMappingAccessorImpl()));
             environment.jersey().register(new FacilityApiImpl(new FacilityAccessorImpl()));
             environment.jersey().register(new UserPreferredLocationApiImpl(new UserPreferredLocationAccessorImpl()));

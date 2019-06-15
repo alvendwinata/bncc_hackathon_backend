@@ -111,4 +111,52 @@ public class VenueAccessorImpl implements VenueAccessor {
       throw new IllegalArgumentException("Uknown error occured");
     }
   }
+
+  @Override public List<Venue> getVenueById(List<Long> id) {
+    List<Venue> venues = new ArrayList<>();
+    try {
+      String sportIds = "";
+      for (int i =0; i<id.size(); i++){
+        sportIds += id.get(i);
+        if(i != id.size()-1){
+          sportIds += ",";
+        }
+      }
+
+      String SQL_SELECT = "Select * from venues WHERE id IN(" + sportIds + ")";
+      conn = DriverManager.getConnection(url, "postgres", "postgres");
+      PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT);
+      ResultSet resultSet = preparedStatement.executeQuery();
+
+      while (resultSet.next()) {
+        long venueId = Long.valueOf(resultSet.getInt("id"));
+        long userId = Long.valueOf(resultSet.getInt("user_id"));
+        String name = resultSet.getString("name");
+        String address = resultSet.getString("address");
+        String description = resultSet.getString("description");
+        String photoso = resultSet.getString("photos");
+        int flag = resultSet.getInt("flag");
+        Double latitude = resultSet.getDouble("latitude");
+        Double longtitude = resultSet.getDouble("longtitude");
+
+        Venue obj = new Venue();
+        obj.setId(venueId);
+        obj.setUserId(userId);
+        obj.setName(name);
+        obj.setAddress(address);
+        obj.setDescription(description);
+        obj.setPhotos(photoso);
+        obj.setFlag(flag);
+        obj.setLatitude(latitude);
+        obj.setLongtitude(longtitude);
+        venues.add(obj);
+      }
+      conn.close();
+
+      return venues;
+    } catch (SQLException e) {
+      e.printStackTrace();
+      throw new IllegalArgumentException("Uknown error occured");
+    }
+  }
 }
