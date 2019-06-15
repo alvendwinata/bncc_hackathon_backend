@@ -1,5 +1,6 @@
 package com.hackathon.bncc.api;
 
+import com.hackathon.bncc.domain.GetUserDayMappingById;
 import com.hackathon.bncc.domain.GetUserDayMappingResult;
 import com.hackathon.bncc.domain.UpsertUserDayMappingResult;
 import com.hackathon.bncc.domain.UpsertUserDayMappingSpec;
@@ -21,4 +22,9 @@ public interface UserDayMappingApi {
   @POST
   @Produces(MediaType.APPLICATION_JSON)
   UpsertUserDayMappingResult upsert(UpsertUserDayMappingSpec spec);
+
+  @Path("/get/userid")
+  @POST
+  @Produces(MediaType.APPLICATION_JSON)
+  GetUserDayMappingResult getByUserId(GetUserDayMappingById spec);
 }
