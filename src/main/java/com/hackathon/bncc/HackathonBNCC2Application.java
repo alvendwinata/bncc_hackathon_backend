@@ -2,6 +2,7 @@ package com.hackathon.bncc;
 
 import com.hackathon.bncc.db.FacilityAccessorImpl;
 import com.hackathon.bncc.db.FacilityVenueMappingAccessorImpl;
+import com.hackathon.bncc.db.PromoteAccessorImpl;
 import com.hackathon.bncc.db.SportAccessorImpl;
 import com.hackathon.bncc.db.UserAccessor;
 import com.hackathon.bncc.db.UserAccessorImpl;
@@ -12,6 +13,7 @@ import com.hackathon.bncc.db.VenueAccessorImpl;
 import com.hackathon.bncc.db.VenueSportMappingAccessorImpl;
 import com.hackathon.bncc.impl.FacilityApiImpl;
 import com.hackathon.bncc.impl.FacilityVenueMappingApiImpl;
+import com.hackathon.bncc.impl.PromoteApiImpl;
 import com.hackathon.bncc.impl.SportApiImpl;
 import com.hackathon.bncc.impl.UserApiImpl;
 import com.hackathon.bncc.impl.UserDayMappingApiImpl;
@@ -69,6 +71,7 @@ public class HackathonBNCC2Application extends Application<HackathonBNCC2Configu
             environment.jersey().register(new UserPreferredLocationApiImpl(new UserPreferredLocationAccessorImpl()));
             environment.jersey().register(new VenueSportMappingApiImpl(new VenueSportMappingAccessorImpl()));
             environment.jersey().register(new FacilityVenueMappingApiImpl(new FacilityVenueMappingAccessorImpl()));
+            environment.jersey().register(new PromoteApiImpl(new PromoteAccessorImpl()));
         } catch (Exception e){
             e.printStackTrace();
         }
