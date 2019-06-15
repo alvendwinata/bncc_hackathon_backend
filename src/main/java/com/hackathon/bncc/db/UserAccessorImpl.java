@@ -127,4 +127,33 @@ public class UserAccessorImpl implements UserAccessor {
       throw new IllegalArgumentException("Uknown error occured");
     }
   }
+
+  @Override public User getById(Long id) {
+    try{
+      User user = new User();
+
+      String SQL_SELECT = "Select * from users WHERE id=" + id;
+      conn = DriverManager.getConnection(url, "postgres", "postgres");
+      PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT);
+      ResultSet resultSet = preparedStatement.executeQuery();
+
+      if(resultSet.next()){
+        long userId = Long.valueOf(resultSet.getInt("id"));
+        String name = resultSet.getString("name");
+        String userEmail = resultSet.getString("email");
+        String password = resultSet.getString("password");
+        String phone = resultSet.getString("phone");
+        String role = resultSet.getString("role");
+
+        user.setId(userId).setName(name).setEmail(userEmail).setPassword(password).setPhone(phone).setRole(Role.convertToEnum(role));
+
+        return user;
+      } else {
+        return null;
+      }
+    } catch (Exception e){
+      e.printStackTrace();
+      throw new IllegalArgumentException("Uknown error occured");
+    }
+  }
 }

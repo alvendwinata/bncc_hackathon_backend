@@ -8,6 +8,7 @@ import com.hackathon.bncc.db.UserDayMappingAccessorImpl;
 import com.hackathon.bncc.db.UserPreferredLocationAccessorImpl;
 import com.hackathon.bncc.db.UserSportMappingAccessorImpl;
 import com.hackathon.bncc.db.VenueAccessorImpl;
+import com.hackathon.bncc.db.VenueSportMappingAccessorImpl;
 import com.hackathon.bncc.impl.FacilityApiImpl;
 import com.hackathon.bncc.impl.SportApiImpl;
 import com.hackathon.bncc.impl.UserApiImpl;
@@ -15,6 +16,7 @@ import com.hackathon.bncc.impl.UserDayMappingApiImpl;
 import com.hackathon.bncc.impl.UserPreferredLocationApiImpl;
 import com.hackathon.bncc.impl.UserSportMappingApiImpl;
 import com.hackathon.bncc.impl.VenueApiImpl;
+import com.hackathon.bncc.impl.VenueSportMappingApiImpl;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -58,10 +60,11 @@ public class HackathonBNCC2Application extends Application<HackathonBNCC2Configu
             environment.jersey().register(new UserApiImpl(new UserAccessorImpl()));
             environment.jersey().register(new SportApiImpl(new SportAccessorImpl()));
             environment.jersey().register(new UserSportMappingApiImpl(new UserSportMappingAccessorImpl()));
-            environment.jersey().register(new VenueApiImpl(new VenueAccessorImpl()));
+            environment.jersey().register(new VenueApiImpl(new VenueAccessorImpl(), new UserSportMappingAccessorImpl()));
             environment.jersey().register(new UserDayMappingApiImpl(new UserDayMappingAccessorImpl()));
             environment.jersey().register(new FacilityApiImpl(new FacilityAccessorImpl()));
             environment.jersey().register(new UserPreferredLocationApiImpl(new UserPreferredLocationAccessorImpl()));
+            environment.jersey().register(new VenueSportMappingApiImpl(new VenueSportMappingAccessorImpl()));
         } catch (Exception e){
             e.printStackTrace();
         }

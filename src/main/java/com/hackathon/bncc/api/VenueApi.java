@@ -1,6 +1,7 @@
 package com.hackathon.bncc.api;
 
 import com.hackathon.bncc.domain.GetAllVenueResult;
+import com.hackathon.bncc.domain.GetByPreferredLocationSpec;
 import com.hackathon.bncc.domain.UpsertVenueResult;
 import com.hackathon.bncc.domain.UpsertVenueSpec;
 import javax.ws.rs.GET;
@@ -19,6 +20,15 @@ public interface VenueApi {
   @Path("/upsert")
   @POST
   @Produces(MediaType.APPLICATION_JSON) UpsertVenueResult upsert(UpsertVenueSpec spec);
+
+  @Path("/preferred/location")
+  @POST
+  @Produces(MediaType.APPLICATION_JSON) GetAllVenueResult getByPreferredLocation(
+      GetByPreferredLocationSpec spec);
+
+  @Path("/preferred/sport")
+  @POST
+  @Produces(MediaType.APPLICATION_JSON) GetAllVenueResult getByPreferredSport(GetByPreferredLocationSpec spec);
 
 }
 

@@ -9,4 +9,6 @@ public interface UserAccessor {
   User upsertUser(User user);
 
   User getByEmail(String email);
+
+  User getById(Long id);
 }
