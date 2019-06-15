@@ -1,6 +1,10 @@
 package com.hackathon.bncc.db;
 
-public interface SportAccessor {
+import com.hackathon.bncc.dao.Sport;
+import java.util.List;
 
+public interface SportAccessor {
+  List<Sport> getAllSport();
+
+  Sport upsert(Sport sport);
 }
-g

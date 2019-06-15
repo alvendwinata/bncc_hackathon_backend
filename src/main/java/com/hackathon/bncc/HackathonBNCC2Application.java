@@ -1,7 +1,9 @@
 package com.hackathon.bncc;
 
+import com.hackathon.bncc.db.SportAccessorImpl;
 import com.hackathon.bncc.db.UserAccessor;
 import com.hackathon.bncc.db.UserAccessorImpl;
+import com.hackathon.bncc.impl.SportApiImpl;
 import com.hackathon.bncc.impl.UserApiImpl;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -43,6 +45,7 @@ public class HackathonBNCC2Application extends Application<HackathonBNCC2Configu
             // Add URL mapping
             cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
             environment.jersey().register(new UserApiImpl(new UserAccessorImpl()));
+            environment.jersey().register(new SportApiImpl(new SportAccessorImpl()));
         } catch (Exception e){
             e.printStackTrace();
         }
