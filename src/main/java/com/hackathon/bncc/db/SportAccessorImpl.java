@@ -79,4 +79,34 @@ public class SportAccessorImpl implements SportAccessor {
       throw new IllegalArgumentException("Uknown error occured");
     }
   }
+
+  @Override public List<Sport> search(String name) {
+    try {
+      List<Sport> sports = new ArrayList<>();
+
+      String SQL_SEARCH = "SELECT * from sports where lower(name) like '%" + name.toLowerCase() + "%'";
+
+      conn = DriverManager.getConnection(url, "postgres", "postgres");
+      PreparedStatement preparedStatement = conn.prepareStatement(SQL_SEARCH);
+      ResultSet resultSet = preparedStatement.executeQuery();
+
+      while (resultSet.next()){
+        long id = Long.valueOf(resultSet.getInt("id"));
+        String sportName = resultSet.getString("name");
+
+        Sport obj = new Sport();
+        obj.setId(id);
+        obj.setName(sportName);
+        sports.add(obj);
+      }
+
+      conn.close();
+
+      return sports;
+    } catch (Exception e){
+      e.printStackTrace();
+      throw new IllegalArgumentException("Uknown error occured");
+    }
+
+  }
 }

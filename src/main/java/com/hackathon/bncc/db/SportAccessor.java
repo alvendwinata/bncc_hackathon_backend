@@ -7,4 +7,6 @@ public interface SportAccessor {
   List<Sport> getAllSport();
 
   Sport upsert(Sport sport);
+
+  List<Sport> search(String name);
 }

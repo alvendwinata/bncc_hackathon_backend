@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f1d4f98-c7de-4b34-b09a-13e99b10c338" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/GetUserByEmailResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/GetUserByEmailSpec.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/dao/UserDayMapping.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/SearchSportResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/SearchSportSpec.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/api/UserApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/api/UserApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserAccessorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserAccessorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/GetAllUserResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/GetAllUserResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/LoginUserResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/LoginUserResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UpsertUserResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UpsertUserResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/UserApiImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/UserApiImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/api/SportApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/api/SportApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserSportMappingAccessorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserSportMappingAccessorImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/SportApiImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/SportApiImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,11 +22,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/UserApiImpl.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/dao/UserDayMapping.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="75" column="73" selection-start-line="75" selection-start-column="73" selection-end-line="75" selection-end-column="73" />
+            <state relative-caret-position="120">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="e#196#197#0" expanded="true" />
+                <element signature="e#215#216#0" expanded="true" />
+                <element signature="e#325#326#0" expanded="true" />
+                <element signature="e#348#349#0" expanded="true" />
+                <element signature="e#473#474#0" expanded="true" />
+                <element signature="e#495#496#0" expanded="true" />
+                <element signature="e#618#619#0" expanded="true" />
+                <element signature="e#640#641#0" expanded="true" />
+                <element signature="e#763#764#0" expanded="true" />
+                <element signature="e#783#784#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,10 +56,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/api/UserApi.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessorImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+            <state relative-caret-position="334">
+              <caret line="90" column="47" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,37 +68,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UpsertUserResult.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/SearchSportResult.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="34" selection-start-column="34" selection-end-column="34" />
+              <caret column="34" lean-forward="true" selection-start-column="34" selection-end-column="34" />
               <folding>
-                <element signature="e#183#184#0" expanded="true" />
-                <element signature="e#207#208#0" expanded="true" />
-                <element signature="e#340#341#0" expanded="true" />
-                <element signature="e#361#362#0" expanded="true" />
+                <element signature="e#149#150#0" expanded="true" />
+                <element signature="e#172#173#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/GetAllUserResult.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/SearchSportSpec.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/dao/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="195">
+              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
               <folding>
-                <element signature="e#931#932#0" expanded="true" />
-                <element signature="e#952#953#0" expanded="true" />
+                <element signature="e#117#118#0" expanded="true" />
+                <element signature="e#138#139#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/api/UserSportMappingApi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="29" column="56" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="56" />
+            <state relative-caret-position="338">
+              <caret line="24" column="64" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,27 +106,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/LoginUserResult.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserSportMappingAccessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="165">
+              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
               <folding>
-                <element signature="e#203#204#0" expanded="true" />
-                <element signature="e#224#225#0" expanded="true" />
-                <element signature="e#346#347#0" expanded="true" />
-                <element signature="e#370#371#0" expanded="true" />
-                <element signature="e#507#508#0" expanded="true" />
-                <element signature="e#531#532#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserAccessor.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserSportMappingAccessorImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="6" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="6" />
+            <state relative-caret-position="285">
+              <caret line="55" column="11" lean-forward="true" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,38 +130,30 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/GetUserByEmailResult.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UpsertUserSportMappingSpec.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="14" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="14" />
+            <state relative-caret-position="45">
+              <caret line="3" column="18" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="18" />
               <folding>
-                <element signature="e#151#152#0" expanded="true" />
-                <element signature="e#175#176#0" expanded="true" />
-                <element signature="e#312#313#0" expanded="true" />
-                <element signature="e#333#334#0" expanded="true" />
+                <element signature="e#164#165#0" expanded="true" />
+                <element signature="e#197#198#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/User.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UserSportMapping.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding>
-                <element signature="e#217#218#0" expanded="true" />
-                <element signature="e#236#237#0" expanded="true" />
-                <element signature="e#336#337#0" expanded="true" />
-                <element signature="e#357#358#0" expanded="true" />
-                <element signature="e#468#469#0" expanded="true" />
-                <element signature="e#490#491#0" expanded="true" />
-                <element signature="e#608#609#0" expanded="true" />
-                <element signature="e#633#634#0" expanded="true" />
-                <element signature="e#760#761#0" expanded="true" />
-                <element signature="e#782#783#0" expanded="true" />
-                <element signature="e#894#895#0" expanded="true" />
-                <element signature="e#915#916#0" expanded="true" />
+                <element signature="e#157#158#0" expanded="true" />
+                <element signature="e#176#177#0" expanded="true" />
+                <element signature="e#288#289#0" expanded="true" />
+                <element signature="e#311#312#0" expanded="true" />
+                <element signature="e#440#441#0" expanded="true" />
+                <element signature="e#464#465#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -191,11 +187,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/Sport.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/GetAllSportResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UpsertSportSpec.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/api/SportApi.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UpsertSportResult.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessorImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/SportApiImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/dao/UserSportMapping.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UserSportMapping.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/GetAllUserSportMappingResult.java" />
@@ -203,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UpsertUserSportMappingSpec.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/DeleteSportMappingResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserSportMappingAccessor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserSportMappingAccessorImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/DeleteSportMappingSpec.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/HackathonBNCC2Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/UserSportMappingApiImpl.java" />
@@ -217,6 +208,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/GetAllUserResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UpsertUserResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/UserApiImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/dao/UserDayMapping.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/api/SportApi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/SearchSportResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/SearchSportSpec.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/SportApiImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessorImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserSportMappingAccessorImpl.java" />
       </list>
     </option>
   </component>
@@ -319,7 +318,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560592695029" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560595565906" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -382,7 +381,7 @@
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25262576" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25262576" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -392,7 +391,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32939914" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39914164" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39914164" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -480,36 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/api/SportApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UpsertUserSpec.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -567,68 +536,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UpsertUserSportMappingSpec.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="18" />
-          <folding>
-            <element signature="e#164#165#0" expanded="true" />
-            <element signature="e#197#198#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UserSportMapping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-          <folding>
-            <element signature="e#157#158#0" expanded="true" />
-            <element signature="e#176#177#0" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#440#441#0" expanded="true" />
-            <element signature="e#464#465#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserSportMappingAccessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserSportMappingAccessorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="87" column="30" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/HackathonBNCC2Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/SportApiImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#607#608#0" expanded="true" />
-            <element signature="e#651#652#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -759,27 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/api/UserSportMappingApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="29" column="56" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/dao/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#931#932#0" expanded="true" />
-            <element signature="e#952#953#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -837,8 +727,158 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/UserApiImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="75" column="73" selection-start-line="75" selection-start-column="73" selection-end-line="75" selection-end-column="73" />
+        <state relative-caret-position="688">
+          <caret line="65" column="7" lean-forward="true" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/dao/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#931#932#0" expanded="true" />
+            <element signature="e#952#953#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/api/SportApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="87" lean-forward="true" selection-start-line="26" selection-start-column="87" selection-end-line="26" selection-end-column="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/SportApiImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="47" column="47" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#607#608#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/dao/UserDayMapping.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#196#197#0" expanded="true" />
+            <element signature="e#215#216#0" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#473#474#0" expanded="true" />
+            <element signature="e#495#496#0" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+            <element signature="e#640#641#0" expanded="true" />
+            <element signature="e#763#764#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/SearchSportResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="34" lean-forward="true" selection-start-column="34" selection-end-column="34" />
+          <folding>
+            <element signature="e#149#150#0" expanded="true" />
+            <element signature="e#172#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/SearchSportSpec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+          <folding>
+            <element signature="e#117#118#0" expanded="true" />
+            <element signature="e#138#139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UpsertUserSportMappingSpec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="18" />
+          <folding>
+            <element signature="e#164#165#0" expanded="true" />
+            <element signature="e#197#198#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/UserSportMapping.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#157#158#0" expanded="true" />
+            <element signature="e#176#177#0" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
+            <element signature="e#311#312#0" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#464#465#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessorImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="90" column="47" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/SportAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/api/UserSportMappingApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="24" column="64" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserSportMappingAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/UserSportMappingAccessorImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="55" column="11" lean-forward="true" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

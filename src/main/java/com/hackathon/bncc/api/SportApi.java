@@ -1,6 +1,8 @@
 package com.hackathon.bncc.api;
 
 import com.hackathon.bncc.domain.GetAllSportResult;
+import com.hackathon.bncc.domain.SearchSportResult;
+import com.hackathon.bncc.domain.SearchSportSpec;
 import com.hackathon.bncc.domain.UpsertSportResult;
 import com.hackathon.bncc.domain.UpsertSportSpec;
 import javax.ws.rs.GET;
@@ -19,4 +21,8 @@ public interface SportApi {
   @Path("/upsert")
   @POST
   @Produces(MediaType.APPLICATION_JSON) UpsertSportResult upsert(UpsertSportSpec spec);
+
+  @Path("/search")
+  @POST
+  @Produces(MediaType.APPLICATION_JSON) SearchSportResult search(SearchSportSpec spec);
 }

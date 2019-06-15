@@ -4,6 +4,8 @@ import com.hackathon.bncc.api.SportApi;
 import com.hackathon.bncc.dao.Sport;
 import com.hackathon.bncc.db.SportAccessor;
 import com.hackathon.bncc.domain.GetAllSportResult;
+import com.hackathon.bncc.domain.SearchSportResult;
+import com.hackathon.bncc.domain.SearchSportSpec;
 import com.hackathon.bncc.domain.UpsertSportResult;
 import com.hackathon.bncc.domain.UpsertSportSpec;
 import java.util.Arrays;
@@ -38,6 +40,17 @@ public class SportApiImpl implements SportApi {
     } catch (Exception e){
       e.printStackTrace();
       return new UpsertSportResult().setSuccess(false).setSport(null);
+    }
+  }
+
+  @Override public SearchSportResult search(SearchSportSpec spec) {
+    try {
+      List<Sport> sports = sportAccessor.search(spec.getName());
+      if(sports == null) return new SearchSportResult().setSports(null);
+      return new SearchSportResult().setSports(convertToDomain(sports));
+    } catch (Exception e){
+      e.printStackTrace();
+      return new SearchSportResult().setSports(null);
     }
   }
 

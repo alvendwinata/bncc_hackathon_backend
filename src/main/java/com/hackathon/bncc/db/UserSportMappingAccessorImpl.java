@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class UserSportMappingAccessorImpl implements UserSportMappingAccessor {
   private final String url = "jdbc:postgresql://localhost:5432/hackathon";
@@ -46,6 +48,13 @@ public class UserSportMappingAccessorImpl implements UserSportMappingAccessor {
     try{
       String SQL_UPSERT;
       if(userSportMapping.getId() == null){
+        Map<Long, Long> userAndSportId = getAllUserSportMapping().stream().collect(
+            Collectors.toMap(s -> s.getUserId(), s -> s.getSportId()));
+        if(userAndSportId.get(userSportMapping.getUserId()) != null){
+          if(userAndSportId.get(userSportMapping.getUserId()) == userSportMapping.getSportId()){
+            return result;
+          }
+        }
         SQL_UPSERT = "INSERT INTO user_sport_mapping(user_id, sport_id) VALUES ("
             + userSportMapping.getUserId() + ", " + userSportMapping.getSportId() + ") RETURNING id";
 
