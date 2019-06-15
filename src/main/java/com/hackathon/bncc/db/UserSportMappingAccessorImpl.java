@@ -84,4 +84,17 @@ public class UserSportMappingAccessorImpl implements UserSportMappingAccessor {
       throw new IllegalArgumentException("Uknown error occured");
     }
   }
+
+  @Override public void delete(Integer id) {
+    try {
+      String SQL_DELETE = "DELETE FROM user_sport_mapping WHERE id=" + id + " RETURNING ID";
+      conn = DriverManager.getConnection(url, "postgres", "postgres");
+      PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE);
+
+      preparedStatement.executeQuery();
+    }catch (Exception e){
+      e.printStackTrace();
+      throw new IllegalArgumentException("Uknown error occured");
+    }
+  }
 }

@@ -1,5 +1,7 @@
 package com.hackathon.bncc.api;
 
+import com.hackathon.bncc.domain.DeleteSportMappingResult;
+import com.hackathon.bncc.domain.DeleteSportMappingSpec;
 import com.hackathon.bncc.domain.GetAllUserSportMappingResult;
 import com.hackathon.bncc.domain.UpsertUserSportMappingResult;
 import com.hackathon.bncc.domain.UpsertUserSportMappingSpec;
@@ -21,4 +23,9 @@ public interface UserSportMappingApi {
   @POST
   @Produces(MediaType.APPLICATION_JSON)
   UpsertUserSportMappingResult upsert(UpsertUserSportMappingSpec spec);
+
+  @Path("/delete")
+  @POST
+  @Produces(MediaType.APPLICATION_JSON)
+  DeleteSportMappingResult delete(DeleteSportMappingSpec spec);
 }

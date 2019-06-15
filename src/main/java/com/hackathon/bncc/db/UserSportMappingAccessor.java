@@ -9,4 +9,6 @@ public interface UserSportMappingAccessor {
 
   UserSportMapping upsert(UserSportMapping userSportMapping);
 
+  void delete(Integer id);
+
 }

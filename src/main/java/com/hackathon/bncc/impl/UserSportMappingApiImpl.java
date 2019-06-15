@@ -3,6 +3,8 @@ package com.hackathon.bncc.impl;
 import com.hackathon.bncc.api.UserSportMappingApi;
 import com.hackathon.bncc.dao.UserSportMapping;
 import com.hackathon.bncc.db.UserSportMappingAccessor;
+import com.hackathon.bncc.domain.DeleteSportMappingResult;
+import com.hackathon.bncc.domain.DeleteSportMappingSpec;
 import com.hackathon.bncc.domain.GetAllUserSportMappingResult;
 import com.hackathon.bncc.domain.UpsertUserSportMappingResult;
 import com.hackathon.bncc.domain.UpsertUserSportMappingSpec;
@@ -38,6 +40,16 @@ public class UserSportMappingApiImpl implements UserSportMappingApi {
     } catch (Exception e){
       e.printStackTrace();
       return new UpsertUserSportMappingResult().setSuccess(false).setUserSportMapping(null);
+    }
+  }
+
+  @Override public DeleteSportMappingResult delete(DeleteSportMappingSpec spec) {
+    try{
+      userSportMappingAccessor.delete(spec.getId());
+      return new DeleteSportMappingResult().setSuccess(true).setMessage("Delete Success");
+    } catch (Exception e){
+      e.printStackTrace();
+      return new DeleteSportMappingResult().setSuccess(true).setMessage("Unknown Error occured");
     }
   }
 

@@ -46,6 +46,7 @@ public class HackathonBNCC2Application extends Application<HackathonBNCC2Configu
 
             // Add URL mapping
             cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+
             environment.jersey().register(new UserApiImpl(new UserAccessorImpl()));
             environment.jersey().register(new SportApiImpl(new SportAccessorImpl()));
             environment.jersey().register(new UserSportMappingApiImpl(new UserSportMappingAccessorImpl()));
