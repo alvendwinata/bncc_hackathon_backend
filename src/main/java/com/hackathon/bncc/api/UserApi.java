@@ -1,6 +1,8 @@
 package com.hackathon.bncc.api;
 
 import com.hackathon.bncc.domain.GetAllUserResult;
+import com.hackathon.bncc.domain.GetUserByEmailResult;
+import com.hackathon.bncc.domain.GetUserByEmailSpec;
 import com.hackathon.bncc.domain.LoginUserResult;
 import com.hackathon.bncc.domain.LoginUserSpec;
 import com.hackathon.bncc.domain.UpsertUserResult;
@@ -27,4 +29,9 @@ public interface UserApi {
   @POST
   @Produces(MediaType.APPLICATION_JSON)
   LoginUserResult login(LoginUserSpec spec);
+
+  @Path("/get/email")
+  @POST
+  @Produces(MediaType.APPLICATION_JSON)
+  GetUserByEmailResult getUserByEmail(GetUserByEmailSpec spec);
 }

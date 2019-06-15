@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class UserAccessorImpl implements UserAccessor {
@@ -94,6 +95,35 @@ public class UserAccessorImpl implements UserAccessor {
         return result;
       }
     }catch (Exception e){
+      e.printStackTrace();
+      throw new IllegalArgumentException("Uknown error occured");
+    }
+  }
+
+  @Override public User getByEmail(String email) {
+    try{
+      User user = new User();
+
+      String SQL_SELECT = "Select * from users WHERE email='" + email + "'";
+      conn = DriverManager.getConnection(url, "postgres", "postgres");
+      PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT);
+      ResultSet resultSet = preparedStatement.executeQuery();
+
+      if(resultSet.next()){
+        long id = Long.valueOf(resultSet.getInt("id"));
+        String name = resultSet.getString("name");
+        String userEmail = resultSet.getString("email");
+        String password = resultSet.getString("password");
+        String phone = resultSet.getString("phone");
+        String role = resultSet.getString("role");
+
+        user.setId(id).setName(name).setEmail(userEmail).setPassword(password).setPhone(phone).setRole(Role.convertToEnum(role));
+
+        return user;
+      } else {
+        return null;
+      }
+    } catch (Exception e){
       e.printStackTrace();
       throw new IllegalArgumentException("Uknown error occured");
     }

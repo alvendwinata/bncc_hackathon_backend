@@ -4,6 +4,8 @@ import com.hackathon.bncc.api.UserApi;
 import com.hackathon.bncc.dao.User;
 import com.hackathon.bncc.db.UserAccessor;
 import com.hackathon.bncc.domain.GetAllUserResult;
+import com.hackathon.bncc.domain.GetUserByEmailResult;
+import com.hackathon.bncc.domain.GetUserByEmailSpec;
 import com.hackathon.bncc.domain.LoginUserResult;
 import com.hackathon.bncc.domain.LoginUserSpec;
 import com.hackathon.bncc.domain.UpsertUserResult;
@@ -68,9 +70,20 @@ public class UserApiImpl implements UserApi {
     }
   }
 
-  public List<User> convertToDomain(List<User> users){
+  @Override public GetUserByEmailResult getUserByEmail(GetUserByEmailSpec spec) {
+    try{
+      User user = userAccessor.getByEmail(spec.getEmail());
+      if(user == null) return new GetUserByEmailResult().setSuccess(true) .setUser(null);
+      return new GetUserByEmailResult().setSuccess(true).setUser(convertToDomain(Arrays.asList(user)).get(0));
+    } catch (Exception e){
+      e.printStackTrace();
+      return new GetUserByEmailResult().setSuccess(false).setUser(null);
+    }
+  }
+
+  public List<com.hackathon.bncc.domain.User> convertToDomain(List<User> users){
     if(users == null) return Collections.emptyList();
-    return users.stream().map(s -> new User()
+    return users.stream().map(s -> new com.hackathon.bncc.domain.User()
         .setId(s.getId())
         .setName(s.getName())
         .setEmail(s.getEmail())

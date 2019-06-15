@@ -7,4 +7,6 @@ public interface UserAccessor {
   List<User> getAllUser();
 
   User upsertUser(User user);
+
+  User getByEmail(String email);
 }

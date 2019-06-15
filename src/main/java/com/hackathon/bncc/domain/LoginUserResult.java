@@ -1,7 +1,5 @@
 package com.hackathon.bncc.domain;
 
-import com.hackathon.bncc.dao.User;
-
 public class LoginUserResult {
   private User user;
   private boolean success;

@@ -1,6 +1,6 @@
 package com.hackathon.bncc.domain;
 
-public class UpsertUserResult {
+public class GetUserByEmailResult {
   private boolean success;
   private User user;
 
@@ -8,7 +8,7 @@ public class UpsertUserResult {
     return success;
   }
 
-  public UpsertUserResult setSuccess(boolean success) {
+  public GetUserByEmailResult setSuccess(boolean success) {
     this.success = success;
     return this;
   }
@@ -17,7 +17,7 @@ public class UpsertUserResult {
     return user;
   }
 
-  public UpsertUserResult setUser(User user) {
+  public GetUserByEmailResult setUser(User user) {
     this.user = user;
     return this;
   }

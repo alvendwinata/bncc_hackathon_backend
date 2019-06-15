@@ -1,6 +1,5 @@
 package com.hackathon.bncc.domain;
 
-import com.hackathon.bncc.dao.User;
 import java.util.List;
 
 public class GetAllUserResult {
