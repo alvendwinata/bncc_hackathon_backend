@@ -3,6 +3,9 @@ package com.hackathon.bncc.api;
 import com.hackathon.bncc.domain.GetAllVenueResult;
 import com.hackathon.bncc.domain.GetByPreferredLocationSpec;
 import com.hackathon.bncc.domain.GetByPreferredSportSpec;
+import com.hackathon.bncc.domain.GetDetailVenueSpec;
+import com.hackathon.bncc.domain.GetVenueByUserIdSpec;
+import com.hackathon.bncc.domain.GetVenueDetailResult;
 import com.hackathon.bncc.domain.SearchVenueSpec;
 import com.hackathon.bncc.domain.UpsertVenueResult;
 import com.hackathon.bncc.domain.UpsertVenueSpec;
@@ -40,6 +43,14 @@ public interface VenueApi {
   @Path("/get/city")
   @GET
   @Produces(MediaType.APPLICATION_JSON) GetAllCityResult getAllCity();
+
+  @Path("/get/detail")
+  @POST
+  @Produces(MediaType.APPLICATION_JSON) GetVenueDetailResult getDetailVenue(GetDetailVenueSpec spec);
+
+  @Path("/get/venue/byuserid")
+  @POST
+  @Produces(MediaType.APPLICATION_JSON) GetAllVenueResult getVenueByUserId(GetVenueByUserIdSpec spec);
 
 }
 

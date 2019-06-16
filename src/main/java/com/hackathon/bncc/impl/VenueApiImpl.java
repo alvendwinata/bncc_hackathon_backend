@@ -2,10 +2,18 @@ package com.hackathon.bncc.impl;
 
 import com.hackathon.bncc.api.GetAllCityResult;
 import com.hackathon.bncc.api.VenueApi;
+import com.hackathon.bncc.dao.Area;
+import com.hackathon.bncc.dao.Facility;
+import com.hackathon.bncc.dao.FacilityVenueMapping;
+import com.hackathon.bncc.dao.Sport;
 import com.hackathon.bncc.dao.UserPreferredLocation;
 import com.hackathon.bncc.dao.UserSportMapping;
 import com.hackathon.bncc.dao.Venue;
 import com.hackathon.bncc.dao.VenueSportMapping;
+import com.hackathon.bncc.db.AreaAccessor;
+import com.hackathon.bncc.db.FacilityAccessor;
+import com.hackathon.bncc.db.FacilityVenueMappingAccessor;
+import com.hackathon.bncc.db.SportAccessor;
 import com.hackathon.bncc.db.UserPreferredLocationAccessor;
 import com.hackathon.bncc.db.UserSportMappingAccessor;
 import com.hackathon.bncc.db.VenueAccessor;
@@ -13,6 +21,10 @@ import com.hackathon.bncc.db.VenueSportMappingAccessor;
 import com.hackathon.bncc.domain.GetAllVenueResult;
 import com.hackathon.bncc.domain.GetByPreferredLocationSpec;
 import com.hackathon.bncc.domain.GetByPreferredSportSpec;
+import com.hackathon.bncc.domain.GetDetailVenueSpec;
+import com.hackathon.bncc.domain.GetVenueByUserIdSpec;
+import com.hackathon.bncc.domain.GetVenueDetailResult;
+import com.hackathon.bncc.domain.GetVenueSuperDetailResult;
 import com.hackathon.bncc.domain.SearchVenueSpec;
 import com.hackathon.bncc.domain.UpsertVenueResult;
 import com.hackathon.bncc.domain.UpsertVenueSpec;
@@ -29,14 +41,24 @@ public class VenueApiImpl implements VenueApi {
   private final UserSportMappingAccessor userSportMappingAccessor;
   private final VenueSportMappingAccessor venueSportMappingAccessor;
   private final UserPreferredLocationAccessor userPreferredLocationAccessor;
+  private final SportAccessor sportAccessor;
+  private final FacilityVenueMappingAccessor facilityVenueMappingAccessor;
+  private final FacilityAccessor facilityAccessor;
+  private final AreaAccessor areaAccessor;
 
   @Inject
   public VenueApiImpl(VenueAccessor venueAccessor, UserSportMappingAccessor userSportMappingAccessor,
-      VenueSportMappingAccessor venueSportMappingAccessor, UserPreferredLocationAccessor userPreferredLocationAccessor){
+      VenueSportMappingAccessor venueSportMappingAccessor, UserPreferredLocationAccessor userPreferredLocationAccessor
+      , SportAccessor sportAccessor, FacilityVenueMappingAccessor facilityVenueMappingAccessor, FacilityAccessor facilityAccessor
+      , AreaAccessor areaAccessor){
     this.venueAccessor = venueAccessor;
     this.userSportMappingAccessor = userSportMappingAccessor;
     this.venueSportMappingAccessor = venueSportMappingAccessor;
     this.userPreferredLocationAccessor = userPreferredLocationAccessor;
+    this.sportAccessor = sportAccessor;
+    this.facilityVenueMappingAccessor = facilityVenueMappingAccessor;
+    this.facilityAccessor = facilityAccessor;
+    this.areaAccessor = areaAccessor;
   }
 
   @Override public GetAllVenueResult get() {
@@ -151,6 +173,62 @@ public class VenueApiImpl implements VenueApi {
     } catch (Exception e){
       e.printStackTrace();
       return new GetAllCityResult().setCities(null).setSuccess(false);
+    }
+  }
+
+  @Override public GetVenueDetailResult getDetailVenue(GetDetailVenueSpec spec) {
+    try{
+      GetVenueSuperDetailResult detailResult = new GetVenueSuperDetailResult();
+
+
+      Long venueId = spec.getVenueId();
+      Venue venueResult = venueAccessor.getVenueById(Arrays.asList(venueId)).get(0);
+      List<VenueSportMapping> venueSportMapping = venueSportMappingAccessor.getAll().stream()
+          .filter(s -> s.getVenueId() == venueId).collect(Collectors.toList());
+      List<Long> sportIds = venueSportMapping.stream().map(s -> s.getSportId()).collect(Collectors.toList());
+      List<Sport> sportsResult = sportAccessor.getAllSport().stream().filter(s -> sportIds.contains(s.getId())).collect(
+          Collectors.toList());
+
+      List<FacilityVenueMapping> facilityVenueMapping = facilityVenueMappingAccessor.getAll().stream()
+          .filter(s -> s.getVenueId() == venueId).collect(Collectors.toList());
+      List<Long> facilityIds = facilityVenueMapping.stream().map(s -> s.getFacilityId()).collect(
+          Collectors.toList());
+
+      List<Facility> facilitiesResult = facilityAccessor.getAll().stream().filter(s -> facilityIds.contains(s.getId())).collect(
+          Collectors.toList());
+      List<Area> areasResult = areaAccessor.getAll().stream().filter(s -> s.getVenueId() == venueId).collect(
+          Collectors.toList());
+
+      detailResult.setAddress(venueResult.getAddress());
+      detailResult.setName(venueResult.getName());
+      detailResult.setPic(venueResult.getPhotos());
+      detailResult.setSports(sportsResult);
+      detailResult.setFacilities(facilitiesResult);
+      detailResult.setAreas(areasResult);
+      detailResult.setCity(venueResult.getCity());
+      detailResult.setDesc(detailResult.getDesc());
+
+      return new GetVenueDetailResult().setSuccess(true).setVenueDetail(detailResult);
+    }catch (Exception e){
+      e.printStackTrace();
+      return new GetVenueDetailResult().setSuccess(false).setVenueDetail(null);
+    }
+  }
+
+  @Override public GetAllVenueResult getVenueByUserId(GetVenueByUserIdSpec spec) {
+    try {
+      Long userId = spec.getUserId();
+
+      Venue venue = venueAccessor.getAllVenue()
+          .stream()
+          .filter(s -> s.getUserId() == userId)
+          .collect(Collectors.toList())
+          .get(0);
+      return new GetAllVenueResult().setSuccess(true)
+          .setVenues(convertToDomain(Arrays.asList(venue)));
+    } catch (Exception e){
+      e.printStackTrace();
+      return new GetAllVenueResult().setSuccess(false).setVenues(Collections.emptyList());
     }
   }
 

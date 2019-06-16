@@ -2,7 +2,9 @@ package com.hackathon.bncc.impl;
 
 import com.hackathon.bncc.api.UserApi;
 import com.hackathon.bncc.dao.User;
+import com.hackathon.bncc.dao.Venue;
 import com.hackathon.bncc.db.UserAccessor;
+import com.hackathon.bncc.db.VenueAccessor;
 import com.hackathon.bncc.domain.GetAllUserResult;
 import com.hackathon.bncc.domain.GetUserByEmailResult;
 import com.hackathon.bncc.domain.GetUserByEmailSpec;
@@ -53,6 +55,7 @@ public class UserApiImpl implements UserApi {
           userByEmail = users.stream().collect(Collectors.toMap(s -> s.getEmail(), s -> s));
       if(userByEmail.get(spec.getEmail()) == null) return new LoginUserResult().setSuccess(false).setMessage("Username / Password does not exist").setUser(null);
       if (userByEmail.get(spec.getEmail()).getPassword().equals(spec.getPassword())) {
+        Long userId = userByEmail.get(spec.getEmail()).getId();
         return new LoginUserResult().setMessage("Login Success")
             .setSuccess(true)
             .setUser(convertToDomain(
