@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f1d4f98-c7de-4b34-b09a-13e99b10c338" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/Area.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/hackathon/bncc/domain/Area.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/HackathonBNCC2Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/HackathonBNCC2Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/GetVenueSuperDetailResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/domain/GetVenueSuperDetailResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/VenueApiImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/VenueApiImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hackathon/bncc/HackathonBNCC2Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hackathon/bncc/HackathonBNCC2Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hackathon/bncc/domain/GetVenueSuperDetailResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hackathon/bncc/domain/GetVenueSuperDetailResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hackathon/bncc/impl/VenueApiImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hackathon/bncc/impl/VenueApiImpl.class" afterDir="false" />
-    </list>
+    <list default="true" id="6f1d4f98-c7de-4b34-b09a-13e99b10c338" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +16,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/VenueApiImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="261">
-              <caret line="227" column="39" selection-start-line="227" selection-start-column="39" selection-end-line="227" selection-end-column="39" />
+              <caret line="227" column="55" selection-start-line="227" selection-start-column="55" selection-end-line="227" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -402,7 +392,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560653598580" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560653680863" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Groovy JUnit" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit" value="groovy.util.GroovyTestCase" />
   </component>
@@ -536,24 +526,6 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/VenueApiImpl.java</url>
-          <line>229</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/VenueApiImpl.java</url>
-          <line>232</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/db/PromoteAccessor.java">
@@ -1055,7 +1027,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hackathon/bncc/impl/VenueApiImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
-          <caret line="227" column="39" selection-start-line="227" selection-start-column="39" selection-end-line="227" selection-end-column="39" />
+          <caret line="227" column="55" selection-start-line="227" selection-start-column="55" selection-end-line="227" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
