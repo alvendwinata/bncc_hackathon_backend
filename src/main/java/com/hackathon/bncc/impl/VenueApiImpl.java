@@ -6,6 +6,7 @@ import com.hackathon.bncc.dao.Area;
 import com.hackathon.bncc.dao.Facility;
 import com.hackathon.bncc.dao.FacilityVenueMapping;
 import com.hackathon.bncc.dao.Sport;
+import com.hackathon.bncc.dao.Unit;
 import com.hackathon.bncc.dao.UserPreferredLocation;
 import com.hackathon.bncc.dao.UserSportMapping;
 import com.hackathon.bncc.dao.Venue;
@@ -14,6 +15,7 @@ import com.hackathon.bncc.db.AreaAccessor;
 import com.hackathon.bncc.db.FacilityAccessor;
 import com.hackathon.bncc.db.FacilityVenueMappingAccessor;
 import com.hackathon.bncc.db.SportAccessor;
+import com.hackathon.bncc.db.UnitAcessor;
 import com.hackathon.bncc.db.UserPreferredLocationAccessor;
 import com.hackathon.bncc.db.UserSportMappingAccessor;
 import com.hackathon.bncc.db.VenueAccessor;
@@ -45,12 +47,13 @@ public class VenueApiImpl implements VenueApi {
   private final FacilityVenueMappingAccessor facilityVenueMappingAccessor;
   private final FacilityAccessor facilityAccessor;
   private final AreaAccessor areaAccessor;
+  private final UnitAcessor unitAcessor;
 
   @Inject
   public VenueApiImpl(VenueAccessor venueAccessor, UserSportMappingAccessor userSportMappingAccessor,
       VenueSportMappingAccessor venueSportMappingAccessor, UserPreferredLocationAccessor userPreferredLocationAccessor
       , SportAccessor sportAccessor, FacilityVenueMappingAccessor facilityVenueMappingAccessor, FacilityAccessor facilityAccessor
-      , AreaAccessor areaAccessor){
+      , AreaAccessor areaAccessor, UnitAcessor unitAcessor){
     this.venueAccessor = venueAccessor;
     this.userSportMappingAccessor = userSportMappingAccessor;
     this.venueSportMappingAccessor = venueSportMappingAccessor;
@@ -59,6 +62,7 @@ public class VenueApiImpl implements VenueApi {
     this.facilityVenueMappingAccessor = facilityVenueMappingAccessor;
     this.facilityAccessor = facilityAccessor;
     this.areaAccessor = areaAccessor;
+    this.unitAcessor = unitAcessor;
   }
 
   @Override public GetAllVenueResult get() {
@@ -199,12 +203,27 @@ public class VenueApiImpl implements VenueApi {
       List<Area> areasResult = areaAccessor.getAll().stream().filter(s -> s.getVenueId() == venueId).collect(
           Collectors.toList());
 
+      List<com.hackathon.bncc.domain.Area> areasResultDomain = new ArrayList<>();
+      for (Area area: areasResult) {
+        List<Unit> units = unitAcessor.getAll().stream().filter(s -> s.getAreaId() == area.getId()).collect(
+            Collectors.toList());
+
+        areasResultDomain.add(
+            new com.hackathon.bncc.domain.Area()
+            .setName(area.getName())
+            .setDescription(area.getDescription())
+            .setId(area.getId())
+            .setVenueId(area.getVenueId())
+            .setUnits(units)
+        );
+      }
+
       detailResult.setAddress(venueResult.getAddress());
       detailResult.setName(venueResult.getName());
       detailResult.setPic(venueResult.getPhotos());
       detailResult.setSports(sportsResult);
       detailResult.setFacilities(facilitiesResult);
-      detailResult.setAreas(areasResult);
+      detailResult.setAreas(areasResultDomain);
       detailResult.setCity(venueResult.getCity());
       detailResult.setDesc(detailResult.getDesc());
 

@@ -1,8 +1,8 @@
 package com.hackathon.bncc.domain;
 
-import com.hackathon.bncc.dao.Area;
 import com.hackathon.bncc.dao.Facility;
 import com.hackathon.bncc.dao.Sport;
+import com.hackathon.bncc.dao.Unit;
 import java.util.List;
 
 public class GetVenueSuperDetailResult {
@@ -10,7 +10,7 @@ public class GetVenueSuperDetailResult {
   private String pic;
   private List<Sport> sports;
   private List<Facility> facilities;
-  private List<Area> areas;
+  private List<com.hackathon.bncc.domain.Area> areas;
   private String address;
   private String city;
   private String desc;
@@ -87,4 +87,5 @@ public class GetVenueSuperDetailResult {
     this.desc = desc;
     return this;
   }
+  
 }
