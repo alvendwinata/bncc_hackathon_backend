@@ -1,11 +1,11 @@
 package com.hackathon.bncc.domain;
 
-import com.hackathon.bncc.dao.Promote;
+import com.hackathon.bncc.dao.Venue;
 import java.util.List;
 
 public class GetPromoteResult {
   private boolean success;
-  private List<Promote> promotes;
+  private List<Venue> promotes;
 
   public boolean isSuccess() {
     return success;
@@ -16,11 +16,11 @@ public class GetPromoteResult {
     return this;
   }
 
-  public List<Promote> getPromotes() {
+  public List<Venue> getPromotes() {
     return promotes;
   }
 
-  public GetPromoteResult setPromotes(List<Promote> promotes) {
+  public GetPromoteResult setPromotes(List<Venue> promotes) {
     this.promotes = promotes;
     return this;
   }

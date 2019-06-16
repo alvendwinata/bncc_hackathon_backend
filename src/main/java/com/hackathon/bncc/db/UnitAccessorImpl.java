@@ -1,6 +1,6 @@
 package com.hackathon.bncc.db;
 
-import com.hackathon.bncc.dao.Promote;
+import com.hackathon.bncc.dao.Unit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,44 +9,49 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PromoteAccessorImpl implements PromoteAccessor {
+public class UnitAccessorImpl implements UnitAcessor {
 
   private final String url = "jdbc:postgresql://localhost:5432/hackathon";
   private Connection conn;
 
-  @Override public List<Promote> getAll() {
-    List<Promote> promotes = new ArrayList<>();
+  @Override public List<Unit> getAll()
+  {
+    List<Unit> units = new ArrayList<>();
     try {
-      String SQL_SELECT = "Select * from promotes";
+      String SQL_SELECT = "Select * from units";
       conn = DriverManager.getConnection(url, "postgres", "postgres");
       PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT);
       ResultSet resultSet = preparedStatement.executeQuery();
 
       while (resultSet.next()) {
         long id = Long.valueOf(resultSet.getInt("id"));
-        Long userId = resultSet.getLong("user_id");
+        Long areaId = resultSet.getLong("area_id");
+        String name = resultSet.getString("name");
+        String pic= resultSet.getString("pic");
 
-        Promote obj = new Promote();
+        Unit obj = new Unit();
         obj.setId(id);
-        obj.setUserId(userId);
-        promotes.add(obj);
+        obj.setAreaId(areaId);
+        obj.setName(name);
+        obj.setPic(pic);
+        units.add(obj);
       }
       conn.close();
 
-      return promotes;
+      return units;
     } catch (SQLException e) {
       e.printStackTrace();
       throw new IllegalArgumentException("Uknown error occured");
     }
   }
 
-  @Override public Promote upsert(Promote promote) {
-    Promote result = new Promote();
+  @Override public Unit upsert(Unit unit) {
+    Unit result = new Unit();
     try{
       String SQL_UPSERT;
-      if(promote.getId() == null){
-        SQL_UPSERT = "INSERT INTO promotes(user_id) VALUES ("
-            + promote.getUserId() + ") RETURNING id";
+      if(unit.getId() == null){
+        SQL_UPSERT = "INSERT INTO units(area_id, name, pic) VALUES ("
+            + unit.getAreaId() + ", '" + unit.getName() + "', '" + unit.getPic() + "') RETURNING id";
 
         conn = DriverManager.getConnection(url, "postgres", "postgres");
         PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPSERT);
@@ -56,17 +61,22 @@ public class PromoteAccessorImpl implements PromoteAccessor {
 
         long id = resultSet.getLong("id");
         result.setId(id);
-        result.setUserId(promote.getUserId());
+        result.setAreaId(unit.getAreaId());
+        result.setName(unit.getName());
+        result.setPic(unit.getPic());
         conn.close();
         return result;
       } else {
-        SQL_UPSERT = "UPDATE promotes SET user_id=" + promote.getUserId() + " WHERE id=" + promote.getId() + "RETURNING ID";
+        SQL_UPSERT = "UPDATE units SET area_id=" + unit.getAreaId() + ", name='" + unit.getName() + "', pic='" + unit.getPic() + "' WHERE id=" + unit.getId() + "RETURNING ID";
         conn = DriverManager.getConnection(url, "postgres", "postgres");
         PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPSERT);
         ResultSet resultSet = preparedStatement.executeQuery();
         if(resultSet.next()) {
-          result.setId(promote.getId());
-          result.setUserId(promote.getUserId());
+          result.setId(unit.getId());
+          result.setAreaId(unit.getAreaId());
+          result.setName(unit.getName());
+          result.setPic(unit.getPic());
+
           conn.close();
           return result;
         }

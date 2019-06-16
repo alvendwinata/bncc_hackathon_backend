@@ -3,7 +3,7 @@ package com.hackathon.bncc.dao;
 public class Promote {
 
   private Long id;
-  private Long venueId;
+  private Long userId;
 
   public Long getId() {
     return id;
@@ -14,12 +14,12 @@ public class Promote {
     return this;
   }
 
-  public Long getVenueId() {
-    return venueId;
+  public Long getUserId() {
+    return userId;
   }
 
-  public Promote setVenueId(Long venueId) {
-    this.venueId = venueId;
+  public Promote setUserId(Long userId) {
+    this.userId = userId;
     return this;
   }
 }

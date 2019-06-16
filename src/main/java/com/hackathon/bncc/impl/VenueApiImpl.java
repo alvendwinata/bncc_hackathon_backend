@@ -1,5 +1,6 @@
 package com.hackathon.bncc.impl;
 
+import com.hackathon.bncc.api.GetAllCityResult;
 import com.hackathon.bncc.api.VenueApi;
 import com.hackathon.bncc.dao.UserPreferredLocation;
 import com.hackathon.bncc.dao.UserSportMapping;
@@ -131,7 +132,25 @@ public class VenueApiImpl implements VenueApi {
       return new GetAllVenueResult().setVenues(convertToDomain(venues)).setSuccess(true);
     } catch (Exception e){
       e.printStackTrace();
-      return new GetAllVenueResult().setVenues(null).setSuccess(false);
+      return new GetAllVenueResult().setVenues(Collections.emptyList()).setSuccess(false);
+    }
+  }
+
+  @Override public GetAllCityResult getAllCity() {
+    try{
+      List<Venue> venues = venueAccessor.getAllVenue();
+      List<String> cities = new ArrayList<>();
+      for (Venue venue: venues) {
+        if(cities.contains(venue.getCity().toUpperCase())){
+          continue;
+        } else {
+          cities.add(venue.getCity().toUpperCase());
+        }
+      }
+      return new GetAllCityResult().setCities(cities).setSuccess(true);
+    } catch (Exception e){
+      e.printStackTrace();
+      return new GetAllCityResult().setCities(null).setSuccess(false);
     }
   }
 

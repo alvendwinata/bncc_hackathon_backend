@@ -34,8 +34,12 @@ public interface VenueApi {
       GetByPreferredSportSpec spec);
 
   @Path("/search")
-  @GET
+  @POST
   @Produces(MediaType.APPLICATION_JSON) GetAllVenueResult searchVenue(SearchVenueSpec spec);
+
+  @Path("/get/city")
+  @GET
+  @Produces(MediaType.APPLICATION_JSON) GetAllCityResult getAllCity();
 
 }
 
