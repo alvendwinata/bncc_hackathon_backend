@@ -225,7 +225,7 @@ public class VenueApiImpl implements VenueApi {
       detailResult.setFacilities(facilitiesResult);
       detailResult.setAreas(areasResultDomain);
       detailResult.setCity(venueResult.getCity());
-      detailResult.setDesc(detailResult.getDesc());
+      detailResult.setDesc(venueResult.getDescription());
 
       return new GetVenueDetailResult().setSuccess(true).setVenueDetail(detailResult);
     }catch (Exception e){
